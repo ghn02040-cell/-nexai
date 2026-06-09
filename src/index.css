@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-navy-900 antialiased transition-colors duration-300;
+  }
+  /* 다크모드 기본 배경/타이포 */
+  .dark body {
+    @apply bg-navy-950 text-navy-50;
+  }
+  /* 모바일에서 가로 스크롤 방지 */
+  body {
+    @apply overflow-x-hidden;
+  }
+}
+
+@layer components {
+  /* 섹션 공통 좌우 여백 (모바일 → 데스크탑) */
+  .section-x {
+    @apply px-5 sm:px-8 md:px-10 lg:px-12;
+  }
+
+  /* 컨테이너 */
+  .container-x {
+    @apply mx-auto w-full max-w-container section-x;
+  }
+
+  /* 1차 CTA 버튼 (로열블루) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-royal px-6 py-3 font-bold text-white shadow-glow transition hover:bg-royal-600 active:scale-95;
+  }
+
+  /* 2차 버튼 (아웃라인) */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy-200 px-6 py-3 font-bold text-navy-800 transition hover:border-royal hover:text-royal dark:border-navy-600 dark:text-navy-100 dark:hover:border-sky dark:hover:text-sky;
+  }
+
+  /* 표면 카드 (라이트/다크 대응) */
+  .surface {
+    @apply rounded-2xl border border-navy-100 bg-white shadow-card transition-colors dark:border-navy-700 dark:bg-navy-800;
+  }
+
+  /* 태그/뱃지 */
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold;
+  }
+
+  /* 섹션 제목 위 작은 라벨 */
+  .eyebrow {
+    @apply inline-block rounded-full bg-royal/10 px-3 py-1 text-sm font-extrabold uppercase tracking-wider text-royal dark:bg-royal/20 dark:text-sky;
+  }
+}
+
+/* 히어로 그라데이션 배경 */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse at top left, rgba(43, 91, 255, 0.35), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(56, 189, 248, 0.28), transparent 55%),
+    linear-gradient(135deg, #0b1a33 0%, #172a82 100%);
+}
+
+/* 스크롤바 (영상 메뉴 가로 스크롤용) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
