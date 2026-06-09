@@ -1,13 +1,11 @@
 // ============================================================
-// 사이트 전역 데이터 — 회사 정보 / 네비게이션 / 영상 주제 / 동영상 목록
+// 사이트 전역 데이터 — 회사 정보 / 영상 주제(메뉴) / 모듈 / 동영상
 // 콘텐츠를 바꾸려면 대부분 이 파일만 수정하면 됩니다.
 //
-// ▶ 유튜브 영상 추가 방법
-//   1. 유튜브에 영상 업로드 → 공개범위를 "미등록(링크 공개)" 으로 설정
-//      (※ "비공개"는 임베드 재생이 불가하므로, 웹에 노출할 영상은 "미등록" 권장)
-//   2. 영상 URL 의 v= 뒤 11자리 ID 를 youtubeId 에 입력
-//      예) https://youtu.be/AbCdEf12345  →  youtubeId: 'AbCdEf12345'
-//   3. 썸네일은 ID 로 자동 생성됩니다. (없으면 그라데이션 플레이스홀더 표시)
+// ▶ 유튜브 영상 추가/교체
+//   - youtubeId : 유튜브 URL(https://youtu.be/XXXX)의 XXXX 부분 (11자리)
+//   - module    : 소분류(아래 topics[].modules 중 하나와 일치해야 필터됨)
+//   - 영상 공개범위는 "미등록(링크 공개)" 권장 (비공개는 임베드 재생 불가)
 // ============================================================
 
 export const company = {
@@ -16,8 +14,8 @@ export const company = {
   fullName: 'AICADEMY ONLINE LEARNING',
   tagline: '온라인으로 배우는 AI & AI 리터러시',
   intro: [
-    '에이아이카데미는 누구나 쉽게 인공지능을 이해하고 활용할 수 있도록, 검증된 강의를 온라인 동영상으로 제공하는 교육 플랫폼입니다.',
-    'AI 기초부터 생성형 AI 실무, 그리고 디지털 시민이 갖추어야 할 AI 리터러시까지 — 체계적인 커리큘럼으로 여러분의 한 걸음을 함께합니다.',
+    '에이아이카데미는 누구나 쉽게 인공지능을 이해하고 활용할 수 있도록, 현업 전문가의 강의를 온라인 동영상으로 제공하는 교육 플랫폼입니다.',
+    'AI를 활용한 콘텐츠 제작 실무부터, 디지털 시민이 갖추어야 할 AI 리터러시와 학습 역량까지 — 체계적인 커리큘럼으로 여러분의 한 걸음을 함께합니다.',
   ],
   email: 'edu@dreamitbiz.com',
   tel: '02-1234-5678',
@@ -37,13 +35,13 @@ export const company = {
 export const features = [
   {
     icon: '🎬',
-    title: '엄선된 동영상 강의',
-    desc: '현업 전문가가 직접 제작한 고품질 영상으로, 언제 어디서나 반복 학습하세요.',
+    title: '실무형 동영상 강의',
+    desc: '현업 전문가가 직접 제작한 강의로, 따라하며 바로 적용할 수 있습니다.',
   },
   {
     icon: '🧭',
-    title: '주제별 커리큘럼',
-    desc: 'AI 기초·리터러시·생성형 AI·프롬프트·윤리까지 단계별로 구성된 학습 경로.',
+    title: '주제·모듈 커리큘럼',
+    desc: '콘텐츠 제작 실무와 AI 리터러시를 모듈 단위로 체계적으로 구성했습니다.',
   },
   {
     icon: '📱',
@@ -53,225 +51,81 @@ export const features = [
   {
     icon: '🌗',
     title: '라이트 & 다크 모드',
-    desc: '눈이 편안한 다크 테마와 밝은 라이트 테마를 자유롭게 전환하세요.',
+    desc: '밝은 기본 테마와 눈이 편안한 다크 테마를 자유롭게 전환하세요.',
   },
 ]
 
 // ============================================================
-// 영상 주제 (= 상단 네비 "영상 강의" 하위메뉴 / 라우트 키)
+// 영상 주제(메뉴) — 대탭 + 소분류(모듈)
+//  modules 의 각 문자열은 videos[].module 과 일치해야 필터됩니다.
 // ============================================================
 export const topics = [
   {
-    key: 'ai-basics',
-    label: 'AI 기초',
-    title: 'AI 기초 이해',
-    headline: '인공지능, 여기서부터 시작하세요',
-    desc: '머신러닝·딥러닝의 기본 개념부터 AI가 동작하는 원리까지, 비전공자도 이해할 수 있게 풀어드립니다.',
+    key: 'creation',
+    label: 'AI 콘텐츠 제작',
+    title: '생성형 AI 콘텐츠 제작 실무',
+    headline: 'AI로 만드는 콘텐츠 — 기획부터 코딩까지',
+    desc: '글·이미지·영상·프레젠테이션 제작은 물론, 피그마와 바이브코딩까지. 생성형 AI를 실무에 바로 적용하는 제작 노하우를 익힙니다.',
     accent: 'royal',
+    modules: ['콘텐츠 제작', '이미지 만들기', '영상 제작', '프레젠테이션', '효과적 발표', '피그마', '바이브코딩'],
   },
   {
-    key: 'ai-literacy',
+    key: 'literacy',
     label: 'AI 리터러시',
-    title: 'AI 리터러시',
-    headline: 'AI 시대를 살아가는 힘',
-    desc: 'AI를 비판적으로 이해하고 책임감 있게 활용하는 디지털 시민의 핵심 역량을 기릅니다.',
+    title: 'AI 리터러시 & 학습 역량',
+    headline: 'AI 시대의 사고력과 생산성 도구',
+    desc: '창의적 문제해결과 디자인씽킹·컴퓨팅 사고력부터, 마크다운·노션·리포트 작성·인용 관리까지 — AI 시대의 학습 역량을 기릅니다.',
     accent: 'sky',
-  },
-  {
-    key: 'generative',
-    label: '생성형 AI',
-    title: '생성형 AI 실무',
-    headline: '일잘러를 위한 생성형 AI 활용',
-    desc: 'ChatGPT·Claude·이미지 생성 도구를 업무와 학습에 바로 적용하는 실전 노하우.',
-    accent: 'mint',
-  },
-  {
-    key: 'prompt',
-    label: '프롬프트',
-    title: '프롬프트 엔지니어링',
-    headline: '원하는 답을 끌어내는 질문의 기술',
-    desc: 'AI에게 효과적으로 지시하고 원하는 결과를 얻어내는 프롬프트 설계 방법을 익힙니다.',
-    accent: 'amber',
-  },
-  {
-    key: 'ethics',
-    label: 'AI 윤리',
-    title: 'AI 윤리와 사회',
-    headline: '신뢰할 수 있는 AI를 위하여',
-    desc: '편향·프라이버시·저작권 등 AI가 던지는 사회적 질문과 책임 있는 활용 기준을 다룹니다.',
-    accent: 'royal',
+    modules: ['창의·문제해결', '디자인씽킹', '컴퓨팅 사고', '마크다운', '노션', '리포트 작성', '인용·출처'],
   },
 ]
 
 // ============================================================
 // 동영상 데이터 (topic 키별 배열)
-//  - youtubeId : 유튜브 영상 11자리 ID (미등록/링크공개 영상 권장)
-//  - 실제 운영 시 아래 youtubeId 를 본인 영상 ID 로 교체하세요.
 // ============================================================
-
-// 데모용 영상 생성 헬퍼 (실제 ID 로 교체 전까지 플레이스홀더로 동작)
-function demo(topicKey, prefix, count) {
-  return Array.from({ length: count }, (_, i) => ({
-    id: `${topicKey}-${i + 1}`,
-    youtubeId: '', // ← 여기에 유튜브 ID 입력 (비우면 그라데이션 썸네일 표시)
-    title: `${prefix} ${i + 1}강`,
-    desc: '강의 설명을 입력하세요. 영상의 핵심 내용을 한두 문장으로 요약합니다.',
-    duration: `${8 + ((i * 3) % 22)}:${(i * 17) % 60 < 10 ? '0' : ''}${(i * 17) % 60}`,
-    level: ['입문', '기초', '중급', '심화'][i % 4],
-  }))
-}
-
 export const videos = {
-  'ai-basics': [
-    {
-      id: 'ai-basics-1',
-      youtubeId: 'ad79nYk2keg',
-      title: '인공지능이란 무엇인가',
-      desc: 'AI, 머신러닝, 딥러닝의 차이를 한 번에 정리합니다.',
-      duration: '12:40',
-      level: '입문',
-    },
-    {
-      id: 'ai-basics-2',
-      youtubeId: 'IHZwWFHWa-w',
-      title: '기계는 어떻게 학습하는가',
-      desc: '지도학습·비지도학습·강화학습의 개념과 사례.',
-      duration: '15:10',
-      level: '입문',
-    },
-    {
-      id: 'ai-basics-3',
-      youtubeId: 'aircAruvnKk',
-      title: '신경망과 딥러닝의 원리',
-      desc: '뉴런에서 출발해 딥러닝이 동작하는 직관을 잡습니다.',
-      duration: '18:25',
-      level: '기초',
-    },
-    {
-      id: 'ai-basics-4',
-      youtubeId: 'Ilg3gGewQ5U',
-      title: '역전파, 직관적으로 이해하기',
-      desc: '신경망이 오차를 줄여나가는 학습의 핵심 원리.',
-      duration: '12:47',
-      level: '중급',
-    },
-    {
-      id: 'ai-basics-5',
-      youtubeId: 'wjZofJX0v4M',
-      title: '트랜스포머 — LLM을 만든 기술',
-      desc: '대규모 언어모델의 근간이 되는 트랜스포머 구조.',
-      duration: '27:14',
-      level: '심화',
-    },
-    {
-      id: 'ai-basics-6',
-      youtubeId: 'tIeHLnjs5U8',
-      title: '역전파의 수학',
-      desc: '경사하강과 미분으로 들여다보는 학습 과정.',
-      duration: '10:18',
-      level: '심화',
-    },
-    ...demo('ai-basics', 'AI 기초', 6),
+  creation: [
+    { id: 'c1', youtubeId: 'Wxfb4DaqqYw', module: '콘텐츠 제작', title: 'AI 콘텐츠 제작 ①', desc: '생성형 AI로 콘텐츠를 기획하고 초안을 완성하는 기본기.' },
+    { id: 'c2', youtubeId: 'A8b_9wGLdt4', module: '콘텐츠 제작', title: 'AI 콘텐츠 제작 ②', desc: '실전 사례로 배우는 콘텐츠 제작 워크플로우.' },
+    { id: 'c3', youtubeId: 'ME6FYY_Lj9o', module: '이미지 만들기', title: '수려한 이미지 만들기 ①', desc: '이미지 생성 AI로 고품질 비주얼을 만드는 법.' },
+    { id: 'c4', youtubeId: 'BKLSj1zGOjY', module: '이미지 만들기', title: '수려한 이미지 만들기 ②', desc: '프롬프트와 보정으로 완성도를 높이는 심화편.' },
+    { id: 'c5', youtubeId: '6JQ7F-19598', module: '영상 제작', title: 'AI 영상 제작 ①', desc: 'AI 도구로 영상 콘텐츠를 빠르게 제작하기.' },
+    { id: 'c6', youtubeId: '7qJ4g_6ZrpA', module: '영상 제작', title: 'AI 영상 제작 ②', desc: '편집·자막·효과까지 AI로 효율화하기.' },
+    { id: 'c7', youtubeId: 'pGMPdPW9kMM', module: '영상 제작', title: 'AI 영상 제작 ③', desc: '완성도 높은 영상으로 마무리하는 실전편.' },
+    { id: 'c8', youtubeId: 'CMhU0GerdIA', module: '프레젠테이션', title: 'AI 프레젠테이션 제작 ①', desc: 'AI로 설득력 있는 발표 자료를 설계하기.' },
+    { id: 'c9', youtubeId: 'A7Z2H4BJMIQ', module: '프레젠테이션', title: 'AI 프레젠테이션 제작 ②', desc: '디자인과 구성을 AI로 빠르게 완성하기.' },
+    { id: 'c10', youtubeId: 'uL_IiYDtcbs', module: '프레젠테이션', title: 'AI 프레젠테이션 제작 ③', desc: '실전 템플릿으로 발표 자료 완성하기.' },
+    { id: 'c11', youtubeId: 't8qhHm42ie4', module: '효과적 발표', title: '효과적인 프레젠테이션', desc: '청중을 사로잡는 발표 전달 전략.' },
+    { id: 'c12', youtubeId: 'Wi0EWqLpSwg', module: '피그마', title: '피그마 활용 ①', desc: 'AI 시대의 디자인 협업 도구 피그마 입문.' },
+    { id: 'c13', youtubeId: 'tSOs9b-M6TM', module: '피그마', title: '피그마 활용 ②', desc: '실전 화면 설계와 프로토타이핑.' },
+    { id: 'c14', youtubeId: 'LnqUCQGDzaQ', module: '바이브코딩', title: '바이브코딩 ①', desc: 'AI와 함께 코드를 작성하는 바이브코딩 입문.' },
+    { id: 'c15', youtubeId: 'dbOIYu3YQcI', module: '바이브코딩', title: '바이브코딩 ②', desc: '실전 프로젝트로 익히는 AI 페어 코딩.' },
+    { id: 'c16', youtubeId: 'Xabe8aFvOqA', module: '바이브코딩', title: '바이브코딩 ③', desc: '기능 구현과 디버깅을 AI로 가속하기.' },
+    { id: 'c17', youtubeId: 'vzcvfwk6lI8', module: '바이브코딩', title: '바이브코딩 ④', desc: '배포까지 이어지는 바이브코딩 완성편.' },
   ],
-  'ai-literacy': [
-    {
-      id: 'ai-literacy-1',
-      youtubeId: 'LWiM-LuRe6w',
-      title: 'AI 리터러시, 왜 필요한가',
-      desc: 'AI 시대 필수 역량으로서의 리터러시 개념.',
-      duration: '10:30',
-      level: '입문',
-    },
-    {
-      id: 'ai-literacy-2',
-      youtubeId: 'R9OHn5ZF4Uo',
-      title: 'AI가 만든 정보 비판적으로 읽기',
-      desc: '환각·허위정보·딥페이크를 분별하는 법.',
-      duration: '14:05',
-      level: '기초',
-    },
-    ...demo('ai-literacy', 'AI 리터러시', 10),
-  ],
-  generative: [
-    {
-      id: 'generative-1',
-      youtubeId: 'JTxsNm9IdYU',
-      title: 'ChatGPT & Claude 제대로 쓰기',
-      desc: '대화형 AI를 업무에 활용하는 기본기.',
-      duration: '16:50',
-      level: '기초',
-    },
-    {
-      id: 'generative-2',
-      youtubeId: 'zizonToFXDs',
-      title: '대규모 언어모델(LLM) 입문',
-      desc: '생성형 AI의 작동 원리를 쉽게 이해합니다.',
-      duration: '13:20',
-      level: '중급',
-    },
-    {
-      id: 'generative-3',
-      youtubeId: '5sLYAQS9sWQ',
-      title: 'LLM은 어떻게 동작하는가',
-      desc: '토큰·확률·생성 과정을 그림으로 이해.',
-      duration: '17:40',
-      level: '기초',
-    },
-    {
-      id: 'generative-4',
-      youtubeId: 'X-AWdfSFCHQ',
-      title: '챗봇과 LLM의 작동 방식',
-      desc: '대화형 AI 뒤에서 일어나는 일.',
-      duration: '11:25',
-      level: '기초',
-    },
-    {
-      id: 'generative-5',
-      youtubeId: 'zjkBMFhNj_g',
-      title: 'LLM 심층 입문 (1시간 강의)',
-      desc: '언어모델의 전반을 깊이 있게 다루는 종합 강의.',
-      duration: '59:48',
-      level: '심화',
-    },
-    {
-      id: 'generative-6',
-      youtubeId: 'kCc8FmEb1nY',
-      title: 'GPT를 코드로 직접 만들기',
-      desc: '밑바닥부터 GPT를 구현하며 이해하기.',
-      duration: '1:56:20',
-      level: '심화',
-    },
-    ...demo('generative', '생성형 AI', 6),
-  ],
-  prompt: [
-    {
-      id: 'prompt-1',
-      youtubeId: 'dOxUroR57xs',
-      title: '좋은 프롬프트의 5가지 원칙',
-      desc: '맥락·역할·형식·예시·제약을 활용한 설계.',
-      duration: '11:15',
-      level: '기초',
-    },
-    ...demo('prompt', '프롬프트', 8),
-  ],
-  ethics: [
-    {
-      id: 'ethics-1',
-      youtubeId: 'WXuK6gekU1Y',
-      title: 'AI 편향과 공정성',
-      desc: '데이터 편향이 만드는 문제와 대응 방안.',
-      duration: '12:00',
-      level: '기초',
-    },
-    ...demo('ethics', 'AI 윤리', 7),
+  literacy: [
+    { id: 'l1', youtubeId: 'JJjFNBV66As', module: '창의·문제해결', title: '창의력·복합문제해결에서의 AI ①', desc: '복잡한 문제를 AI와 함께 창의적으로 해결하기.' },
+    { id: 'l2', youtubeId: 'cd-OKHeomEs', module: '창의·문제해결', title: '창의력·복합문제해결에서의 AI ②', desc: '문제 정의와 발상 단계에서의 AI 활용.' },
+    { id: 'l3', youtubeId: 'Lk1VTV2hNag', module: '창의·문제해결', title: '창의력·복합문제해결에서의 AI ③', desc: '실전 케이스로 보는 창의적 문제해결.' },
+    { id: 'l4', youtubeId: 'rcOz0mtCrs4', module: '디자인씽킹', title: '디자인씽킹과 생성형 AI', desc: '사용자 중심 사고에 생성형 AI를 결합하기.' },
+    { id: 'l5', youtubeId: 'nXj0Gu5eVXY', module: '컴퓨팅 사고', title: '컴퓨터 사고력', desc: '문제를 분해하고 절차화하는 컴퓨팅 사고력.' },
+    { id: 'l6', youtubeId: 'JZ-C64wfYz0', module: '마크다운', title: 'Markdown 활용 ①', desc: '문서 작성의 기본, 마크다운 문법 익히기.' },
+    { id: 'l7', youtubeId: 'pP3vjiUyhf0', module: '마크다운', title: 'Markdown 활용 ②', desc: '실전 문서·노트에 마크다운 적용하기.' },
+    { id: 'l8', youtubeId: '6bKsR2Abx7w', module: '노션', title: 'Notion 마스터클래스 ①', desc: '노션으로 지식과 업무를 체계화하기.' },
+    { id: 'l9', youtubeId: 'mOOJRixC3WU', module: '노션', title: 'Notion 마스터클래스 ②', desc: '데이터베이스·템플릿 활용 심화편.' },
+    { id: 'l10', youtubeId: '4W4QNCIooXU', module: '리포트 작성', title: 'AI 리포트 작성법 ①', desc: 'AI를 활용한 리포트 기획과 구조 설계.' },
+    { id: 'l11', youtubeId: 'NbVacutsdlM', module: '리포트 작성', title: 'AI 리포트 작성법 ②', desc: '근거를 갖춘 설득력 있는 글쓰기.' },
+    { id: 'l12', youtubeId: 'hRHCFLY8ph4', module: '리포트 작성', title: 'AI 리포트 작성법 ③', desc: '검토·교정으로 완성도를 높이는 마무리.' },
+    { id: 'l13', youtubeId: 'XsEKcOPIddo', module: '인용·출처', title: '대학생을 위한 인용·출처 관리', desc: '올바른 인용과 출처 관리로 신뢰도 높이기.' },
   ],
 }
 
-// 홈 화면 "추천 영상" — 각 주제 대표 영상 모음
+// 홈 화면 "추천 영상"
 export const featured = [
-  { topic: 'ai-basics', videoId: 'ai-basics-1' },
-  { topic: 'generative', videoId: 'generative-1' },
-  { topic: 'ai-literacy', videoId: 'ai-literacy-1' },
+  { topic: 'creation', videoId: 'c1' },
+  { topic: 'creation', videoId: 'c14' },
+  { topic: 'literacy', videoId: 'l1' },
+  { topic: 'literacy', videoId: 'l8' },
 ]
 
 // 페이지당 영상 수 (2 x 3 그리드)

@@ -76,7 +76,7 @@ export default {
         sans: ['Pretendard', 'system-ui', '-apple-system', 'sans-serif'],
       },
       maxWidth: {
-        container: '1280px',
+        container: '1600px',
       },
       boxShadow: {
         card: '0 10px 30px -12px rgba(11, 26, 51, 0.25)',

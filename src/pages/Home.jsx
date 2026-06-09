@@ -109,12 +109,12 @@ export default function Home() {
               주제별로 만나는 강의
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {topics.map((t) => (
               <Link
                 key={t.key}
                 to={`/videos/${t.key}`}
-                className="surface group flex flex-col p-7 transition hover:-translate-y-1 hover:shadow-glow"
+                className="surface group flex flex-col p-8 transition hover:-translate-y-1 hover:shadow-glow"
               >
                 <span className={`chip mb-4 w-fit ${accentChip[t.accent] || accentChip.royal}`}>
                   {(videos[t.key] || []).length}개 강의
@@ -149,7 +149,7 @@ export default function Home() {
               전체보기 →
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredVideos.map((v) => (
               <VideoCard key={v.id} video={v} onPlay={setActive} />
             ))}

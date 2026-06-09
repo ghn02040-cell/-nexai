@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-// 레벨 뱃지 색상
+// 레벨/모듈 뱃지 색상 (레벨이 있으면 매핑, 없으면 기본 로열)
 const levelStyle = {
   입문: 'bg-mint/20 text-mint-500',
   기초: 'bg-sky/20 text-sky-700 dark:text-sky',
@@ -55,9 +55,13 @@ export default function VideoCard({ video, onPlay }) {
       {/* 정보 */}
       <div className="flex flex-1 flex-col p-4">
         <div className="mb-2 flex items-center gap-2">
-          {video.level && (
-            <span className={`chip ${levelStyle[video.level] || 'bg-navy-100 text-navy-600'}`}>
-              {video.level}
+          {(video.module || video.level) && (
+            <span
+              className={`chip ${
+                levelStyle[video.level] || 'bg-royal/10 text-royal dark:bg-royal/20 dark:text-sky'
+              }`}
+            >
+              {video.module || video.level}
             </span>
           )}
         </div>

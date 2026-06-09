@@ -20,9 +20,9 @@
 }
 
 @layer components {
-  /* 섹션 공통 좌우 여백 (모바일 → 데스크탑) */
+  /* 섹션 공통 좌우 여백 (rest03 기준 — 넉넉한 여백) */
   .section-x {
-    @apply px-5 sm:px-8 md:px-10 lg:px-12;
+    @apply px-4 md:px-10 lg:px-24 xl:px-40;
   }
 
   /* 컨테이너 */
