@@ -50,6 +50,13 @@ export default function VideoCard({ video, onPlay }) {
             {video.duration}
           </span>
         )}
+
+        {/* 영상 미연결(준비중) 배지 */}
+        {!video.youtubeId && (
+          <span className="absolute left-2 top-2 rounded bg-amber px-2 py-0.5 text-xs font-bold text-navy-900">
+            준비중
+          </span>
+        )}
       </div>
 
       {/* 정보 */}
