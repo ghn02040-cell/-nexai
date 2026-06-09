@@ -56,12 +56,25 @@
   }
 }
 
-/* 히어로 그라데이션 배경 */
+/* 히어로 그라데이션 배경 (홈 메인용 — 진한 네이비) */
 .hero-gradient {
   background:
     radial-gradient(ellipse at top left, rgba(43, 91, 255, 0.35), transparent 55%),
     radial-gradient(ellipse at bottom right, rgba(56, 189, 248, 0.28), transparent 55%),
     linear-gradient(135deg, #0b1a33 0%, #172a82 100%);
+}
+
+/* 서브페이지 헤더용 — 밝고 시원한 라이트 그라데이션 */
+.hero-soft {
+  background:
+    radial-gradient(ellipse at top right, rgba(56, 189, 248, 0.22), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(43, 91, 255, 0.12), transparent 55%),
+    linear-gradient(135deg, #f5f8ff 0%, #eef3ff 100%);
+}
+.dark .hero-soft {
+  background:
+    radial-gradient(ellipse at top right, rgba(56, 189, 248, 0.16), transparent 60%),
+    linear-gradient(135deg, #0f1c38 0%, #0b1a33 100%);
 }
 
 /* 스크롤바 (영상 메뉴 가로 스크롤용) */

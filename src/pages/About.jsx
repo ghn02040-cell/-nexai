@@ -5,11 +5,13 @@ export default function About() {
   return (
     <div>
       {/* 헤드 */}
-      <section className="hero-gradient text-white">
-        <div className="container-x py-16 md:py-24">
-          <p className="eyebrow !bg-white/15 !text-sky">ABOUT US</p>
-          <h1 className="mt-4 text-3xl font-extrabold md:text-5xl">{company.nameKo}</h1>
-          <p className="mt-3 text-lg text-navy-100">{company.tagline}</p>
+      <section className="hero-soft border-b border-navy-100 dark:border-navy-700">
+        <div className="container-x py-14 md:py-20">
+          <p className="eyebrow">ABOUT US</p>
+          <h1 className="mt-4 text-3xl font-extrabold text-navy-900 dark:text-white md:text-5xl">
+            {company.nameKo}
+          </h1>
+          <p className="mt-3 text-lg text-navy-600 dark:text-navy-200">{company.tagline}</p>
         </div>
       </section>
 

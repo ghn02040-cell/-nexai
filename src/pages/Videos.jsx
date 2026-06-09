@@ -34,13 +34,13 @@ export default function Videos() {
   return (
     <div>
       {/* 페이지 헤드 */}
-      <section className="hero-gradient text-white">
-        <div className="container-x py-14 md:py-20">
-          <p className="eyebrow !bg-white/15 !text-sky">VIDEO LECTURES</p>
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight md:text-5xl">
+      <section className="hero-soft border-b border-navy-100 dark:border-navy-700">
+        <div className="container-x py-12 md:py-16">
+          <p className="eyebrow">VIDEO LECTURES</p>
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight text-navy-900 dark:text-white md:text-5xl">
             {meta.headline}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-navy-100 md:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-navy-600 dark:text-navy-200 md:text-lg">
             {meta.desc}
           </p>
         </div>

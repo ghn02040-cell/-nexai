@@ -15,9 +15,10 @@
       // FOUC 방지: 페인트 전에 저장된 테마 적용
       (function () {
         try {
-          var t = localStorage.getItem('theme')
-          var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
-          if (dark) document.documentElement.classList.add('dark')
+          // 기본값은 라이트 모드. 사용자가 명시적으로 다크를 선택한 경우에만 다크 적용.
+          if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark')
+          }
         } catch (e) {}
       })()
     </script>

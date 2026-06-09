@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 export default function SimplePage({ title, body }) {
   return (
     <div>
-      <section className="hero-gradient text-white">
-        <div className="container-x py-16 md:py-20">
-          <h1 className="text-3xl font-extrabold md:text-4xl">{title}</h1>
+      <section className="hero-soft border-b border-navy-100 dark:border-navy-700">
+        <div className="container-x py-14 md:py-16">
+          <h1 className="text-3xl font-extrabold text-navy-900 dark:text-white md:text-4xl">
+            {title}
+          </h1>
         </div>
       </section>
       <section className="container-x py-16 md:py-24">
