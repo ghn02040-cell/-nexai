@@ -9,22 +9,50 @@
 // ============================================================
 
 export const company = {
+  // 교육 브랜드 (사이트명)
   name: 'AICADEMY',
   nameKo: '에이아이카데미',
   fullName: 'AICADEMY ONLINE LEARNING',
   tagline: '온라인으로 배우는 AI & AI 리터러시',
   intro: [
-    '에이아이카데미는 누구나 쉽게 인공지능을 이해하고 활용할 수 있도록, 현업 전문가의 강의를 온라인 동영상으로 제공하는 교육 플랫폼입니다.',
-    'AI를 활용한 콘텐츠 제작 실무부터, 디지털 시민이 갖추어야 할 AI 리터러시와 학습 역량까지 — 체계적인 커리큘럼으로 여러분의 한 걸음을 함께합니다.',
+    '에이아이카데미는 IT 정보통신 전문 기업 드림아이티비즈(DreamIT Biz)가 운영하는 온라인 AI 교육 플랫폼입니다.',
+    '누구나 쉽게 인공지능을 이해하고 활용할 수 있도록, 현업 전문가의 강의를 동영상으로 제공합니다. AI 콘텐츠 제작 실무부터 AI 리터러시와 학습 역량까지 — 체계적인 커리큘럼으로 함께합니다.',
   ],
-  email: 'edu@dreamitbiz.com',
-  tel: '02-1234-5678',
-  address: '서울특별시 강남구 테헤란로 (DreamIT Biz)',
-  copyright: '© 2026 AICADEMY · DreamIT Biz. All rights reserved.',
+
+  // 연락처 (드림아이티비즈)
+  email: 'aebon@dreamitbiz.com',
+  tel: '010-3700-0629',
+  kakao: 'aebon',
+  hours: '평일 09:00 ~ 18:00',
+
+  // 운영사(법인) 정보 — 푸터 사업자 표기
+  operator: {
+    nameKo: '드림아이티비즈',
+    nameEn: 'DreamIT Biz',
+    ceo: '이애본(Ph.D)',
+    ceoTitle: '한신대학교 AI·SW대학 겸임교수',
+    bizNo: '601-45-20154',
+    mailOrderNo: '제2024-수원팔달-0584호',
+    publisherNo: '제2026-000026호',
+    site: 'https://www.dreamitbiz.com',
+  },
+
+  copyright: '© 2025 드림아이티비즈(DreamIT Biz). All rights reserved.',
+
   social: [
+    { label: 'DreamIT Biz', url: 'https://www.dreamitbiz.com' },
     { label: 'YouTube', url: 'https://youtube.com' },
-    { label: 'Blog', url: 'https://dreamitbiz.com' },
   ],
+
+  // 패밀리 사이트 (dreamitbiz.com 기준)
+  familySites: [
+    { name: 'DreamIT Biz', url: 'https://www.dreamitbiz.com' },
+    { name: 'DreamIT 올댓', url: 'https://allthat.dreamitbiz.com' },
+    { name: 'DreamIT Biz 출판사', url: 'https://books.dreamitbiz.com' },
+    { name: 'AHP 연구 플랫폼', url: 'https://ahp-basic.dreamitbiz.com' },
+    { name: '핵심역량 자가측정', url: 'https://competency.dreamitbiz.com' },
+  ],
+
   footerLinks: [
     { label: '이용약관', to: '/terms' },
     { label: '개인정보처리방침', to: '/privacy', strong: true },

@@ -33,10 +33,15 @@ export default function Contact() {
             </h2>
             <ul className="space-y-5 text-navy-700 dark:text-navy-200">
               <li className="flex gap-4">
-                <span className="text-2xl">📍</span>
+                <span className="text-2xl">✉️</span>
                 <div>
-                  <div className="font-bold">주소</div>
-                  <div className="text-navy-500 dark:text-navy-300">{company.address}</div>
+                  <div className="font-bold">이메일</div>
+                  <a
+                    href={`mailto:${company.email}`}
+                    className="text-royal hover:underline dark:text-sky"
+                  >
+                    {company.email}
+                  </a>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -47,15 +52,34 @@ export default function Contact() {
                 </div>
               </li>
               <li className="flex gap-4">
-                <span className="text-2xl">✉️</span>
+                <span className="text-2xl">💬</span>
                 <div>
-                  <div className="font-bold">이메일</div>
-                  <a
-                    href={`mailto:${company.email}`}
-                    className="text-royal hover:underline dark:text-sky"
-                  >
-                    {company.email}
-                  </a>
+                  <div className="font-bold">카카오톡</div>
+                  <div className="text-navy-500 dark:text-navy-300">{company.kakao}</div>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <span className="text-2xl">🕘</span>
+                <div>
+                  <div className="font-bold">운영시간</div>
+                  <div className="text-navy-500 dark:text-navy-300">{company.hours}</div>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <span className="text-2xl">🏢</span>
+                <div>
+                  <div className="font-bold">운영사</div>
+                  <div className="text-navy-500 dark:text-navy-300">
+                    {company.operator.nameKo} ({company.operator.nameEn}) ·{' '}
+                    <a
+                      href={company.operator.site}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-royal hover:underline dark:text-sky"
+                    >
+                      www.dreamitbiz.com
+                    </a>
+                  </div>
                 </div>
               </li>
             </ul>
